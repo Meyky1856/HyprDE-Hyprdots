@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo pacman -S socat initify-tools gtop cava
 # 1. Konfigurasi Hyprland
 mkdir -p ~/.config/hypr
 cp -rf .config/hypr/* ~/.config/hypr/
