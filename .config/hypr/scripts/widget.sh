@@ -35,13 +35,13 @@ launch_widget() {
 
   echo "Launching: $title ($class)"
   # Opacity 0.8 diterapkan ke semua widget
-  kitty --class "$class" --title "$title" -o font_size=8.5 -o background_opacity=0.6 -e bash -c "$command" &
+  kitty --class "$class" --title "$title" -o font_size=9 -o background_opacity=0.6 -e bash -c "$command" &
 }
 
 # --- Jalankan Widget ---
 
 # Clock
-launch_widget "clock-widget" "Clock" "tty-clock -c -C 4 -f '%A, %B %d' -b"
+launch_widget "clock-widget" "Clock" "tty-clock -c -C 7 -f '%A, %B %d' -b"
 sleep 0.1
 
 # System Monitor
@@ -54,16 +54,17 @@ launch_widget "system-widget" "System Monitor" "gtop"
 sleep 0.1
 
 # Pokemon
-launch_widget "pokemon-widget" "Pokemon" "while true; do clear; pokemon-colorscripts --no-title -n charizard; sleep 360; done"
+launch_widget "pokemon-widget" "Pokemon" "while true; do clear; pokemon-colorscripts --no-title -n lugia; sleep 360; done"
 sleep 0.1
 
 # System Info
 # Gunakan 'sleep infinity' untuk menahan window agar tidak menutup
-launch_widget "info-widget" "System Info" "fastfetch -l arch2; sleep infinity"
+#launch_widget "info-widget" "System Info" "fastfetch -l arch2; sleep infinity"
+launch_widget "info-widget" "System Info" "fastfetch -l Shebang; sleep infinity"
 sleep 0.1
 
 # Matrix (Pengganti Uptime - Posisi Tengah Bawah)
-echo "Launching: Matrix (stopwatch-widget)"
-kitty --class "stopwatch-widget" --title "Matrix" -o font_size=8.5 -o background_opacity=0.6 -e bash -c "unimatrix -n -s 96 -c green" &
+launch_widget "stopwatch-widget" "Uptime" "~/.config/hypr/scripts/uptime.sh" 
+#kitty --class "stopwatch-widget" --title "Matrix" -o font_size=8.5 -o background_opacity=0.6 -e bash -c "unimatrix -n -s 96 -c green" &
 
 echo "✅ All widget processes initiated."
